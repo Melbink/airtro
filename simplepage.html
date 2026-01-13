@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Air Tro | Air Conditioning & Refrigeration</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap");
+
+        :root {
+            --ink: #1a2a35;
+            --mid: #3b6f8a;
+            --soft: #7aa9c3;
+            --mist: #e6eef3;
+            --paper: #f7fafc;
+            --accent: #5fa4d7;
+            --accent-strong: #2d7eb7;
+        }
+
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(1200px 600px at 10% 10%, #f0f6fa 0%, transparent 60%),
+                radial-gradient(900px 500px at 90% 20%, #d9e7f2 0%, transparent 55%),
+                linear-gradient(120deg, #f9fbfc 0%, #eef4f8 40%, #f7fafc 100%);
+            min-height: 100vh;
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='120' height='120' filter='url(%23n)' opacity='0.5'/></svg>");
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 36px 20px 56px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 18px 22px;
+            border-radius: 22px;
+            background: linear-gradient(120deg, #fdfefe, #e7f1f7);
+            box-shadow: 0 20px 50px rgba(27, 50, 64, 0.1);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            background: linear-gradient(160deg, #7fb3d8, #5d98c9);
+            display: grid;
+            place-items: center;
+            box-shadow: inset 0 -8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo svg { width: 58px; height: 58px; }
+
+        .brand h1 {
+            font-family: "Fraunces", "Times New Roman", serif;
+            font-size: clamp(2rem, 3vw, 2.6rem);
+            margin: 0;
+            letter-spacing: 0.02em;
+        }
+
+        .brand span {
+            display: block;
+            color: var(--mid);
+            font-size: 0.95rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .contact-inline {
+            font-size: 0.95rem;
+            text-align: right;
+            color: var(--mid);
+        }
+
+        .contact-inline a {
+            color: var(--accent-strong);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        main {
+            margin-top: 34px;
+            display: grid;
+            gap: 28px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+            gap: 28px;
+            align-items: center;
+        }
+
+        .hero-card {
+            background: linear-gradient(140deg, #fefefe, #eaf2f7);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 18px 40px rgba(24, 48, 64, 0.12);
+        }
+
+        .hero-card h2 {
+            font-family: "Fraunces", "Times New Roman", serif;
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .hero-card p {
+            margin: 0 0 18px;
+            color: var(--mid);
+            font-size: 1.02rem;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .badge {
+            border-radius: 999px;
+            background: #e3eef5;
+            color: var(--mid);
+            padding: 6px 14px;
+            font-size: 0.9rem;
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 18px;
+        }
+
+        .card {
+            background: var(--paper);
+            border-radius: 20px;
+            padding: 20px 22px;
+            box-shadow: 0 12px 28px rgba(20, 40, 54, 0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 12px;
+            font-size: 1.2rem;
+        }
+
+        .card ul {
+            margin: 0;
+            padding-left: 18px;
+            color: var(--mid);
+        }
+
+        .contact-card {
+            display: grid;
+            gap: 12px;
+            background: linear-gradient(140deg, #eaf2f7, #fefefe);
+        }
+
+        .contact-card strong {
+            font-size: 1.05rem;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 8px;
+            color: var(--mid);
+        }
+
+        .contact-list a {
+            color: var(--accent-strong);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            border-radius: 12px;
+            background: var(--accent);
+            color: #f7fbff;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 12px 20px rgba(63, 133, 179, 0.25);
+        }
+
+        .btn.secondary {
+            background: #f0f6fa;
+            color: var(--accent-strong);
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        footer {
+            margin-top: 36px;
+            text-align: center;
+            color: var(--mid);
+            font-size: 0.9rem;
+        }
+
+        .fade-up {
+            opacity: 0;
+            transform: translateY(16px);
+            animation: fadeUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 900px) {
+            header { flex-direction: column; align-items: flex-start; }
+            .contact-inline { text-align: left; }
+            .hero { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<div class="noise" aria-hidden="true"></div>
+
+<div class="container">
+    <header class="fade-up delay-1">
+        <div class="brand">
+            <div class="logo" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="8" width="44" height="48" rx="10" fill="#cfe2f1"/>
+                    <path d="M14 22c8 0 8-4 16-4s8 4 16 4 8-4 16-4" stroke="#5a97c7" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M14 32c8 0 8-4 16-4s8 4 16 4 8-4 16-4" stroke="#5a97c7" stroke-width="4" stroke-linecap="round"/>
+                    <path d="M14 42c8 0 8-4 16-4s8 4 16 4 8-4 16-4" stroke="#5a97c7" stroke-width="4" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div>
+                <h1>Air Tro</h1>
+                <span>Air Conditioning & Refrigeration</span>
+            </div>
+        </div>
+        <div class="contact-inline">
+            <div>Call: <a href="tel:+61452374693">0452 374 693</a></div>
+            <div>Email: <a href="mailto:airtro72@gmail.com">airtro72@gmail.com</a></div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero fade-up delay-2">
+            <div class="hero-card">
+                <h2>Cool, calm, and engineered for comfort.</h2>
+                <p>Installation, service, and refrigeration support for homes and small businesses across the region.</p>
+                <div class="badge-row">
+                    <div class="badge">Split & ducted systems</div>
+                    <div class="badge">Rapid callouts</div>
+                    <div class="badge">Clean, tidy workmanship</div>
+                </div>
+            </div>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Services</h3>
+                    <ul>
+                        <li>New system installs and upgrades</li>
+                        <li>Repairs: airflow, leaks, noise, faults</li>
+                        <li>Preventative maintenance checks</li>
+                        <li>Commercial refrigeration support</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Why Air Tro</h3>
+                    <ul>
+                        <li>Licensed, insured, and detail-focused</li>
+                        <li>Honest pricing and clear timelines</li>
+                        <li>Experience across residential and retail</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="card contact-card fade-up delay-3">
+            <h3>Contact</h3>
+            <strong>Sunil Thomas</strong>
+            <div class="contact-list">
+                <div>Phone: <a href="tel:+61452374693">0452 374 693</a></div>
+                <div>Email: <a href="mailto:airtro72@gmail.com">airtro72@gmail.com</a></div>
+                <div>QBCC Licence: 15055545</div>
+                <div>ABN: 85366137956</div>
+            </div>
+            <div class="cta-row">
+                <a class="btn" href="tel:+61452374693">Call Now</a>
+                <a class="btn secondary" href="mailto:airtro72@gmail.com">Email Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="fade-up delay-4">
+        &copy; <span id="year"></span> Air Tro
+    </footer>
+</div>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
